@@ -9,4 +9,4 @@ export const CONTACT = {
 }
 
 // Imagen del hero — diferente a las del carrusel para evitar repetición
-export const HERO_IMAGE = '/gallery/IMG_4985.webp'
+export const HERO_IMAGE = `${import.meta.env.BASE_URL}gallery/IMG_4985.webp`

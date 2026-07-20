@@ -91,7 +91,7 @@ export default function Gallery({ t }) {
             <AnimatePresence mode="popLayout" custom={dir} initial={false}>
               <motion.img
                 key={photos[current]}
-                src={`/gallery/${photos[current]}`}
+                src={`${import.meta.env.BASE_URL}gallery/${photos[current]}`}
                 alt={`${t.gallery.tagline} ${current + 1}`}
                 custom={dir}
                 variants={imgVariants}
@@ -123,7 +123,7 @@ export default function Gallery({ t }) {
                 onClick={() => go(i)}
                 aria-label={`${t.gallery.tagline} ${i + 1}`}
               >
-                <img src={`/gallery/${photo}`} alt="" loading="lazy" />
+                <img src={`${import.meta.env.BASE_URL}gallery/${photo}`} alt="" loading="lazy" />
               </button>
             ))}
           </div>

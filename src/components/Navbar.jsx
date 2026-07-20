@@ -26,7 +26,7 @@ export default function Navbar({ t, lang, setLang }) {
     <header className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="container navbar-inner">
         <a href="#inicio" className="navbar-logo">
-          <img src="/logo.png" alt="Terremoto Sound & Lighting" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Terremoto Sound & Lighting" />
         </a>
 
         <nav>
