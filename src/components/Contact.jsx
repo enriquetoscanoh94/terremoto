@@ -32,7 +32,6 @@ export default function Contact({ t }) {
       <div className="container">
         <div className="contact-grid">
           <motion.div variants={fromLeft} initial="hidden" whileInView="visible" viewport={VP}>
-            <span className="tagline">{t.contact.tagline}</span>
             <h2 className="section-title">{t.contact.title}</h2>
             <p className="section-subtitle contact-subtitle">{t.contact.subtitle}</p>
             <a

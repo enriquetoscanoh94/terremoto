@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 
 const EASE = [0.22, 1, 0.36, 1]
-const VP = { once: true, amount: 0.2 }
+const VP = { once: true, amount: 0.15 }
 
 const header = {
   hidden: {},
@@ -13,14 +13,14 @@ const fade = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.58, ease: EASE } },
 }
 
-const list = {
+const lineup = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.07, delayChildren: 0.15 } },
+  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.12 } },
 }
 
-const pill = {
-  hidden: { opacity: 0, scale: 0.88, y: 12 },
-  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.4, ease: EASE } },
+const lineupItem = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.42, ease: EASE } },
 }
 
 export default function Events({ t }) {
@@ -28,20 +28,27 @@ export default function Events({ t }) {
     <section className="events" id="eventos">
       <div className="container">
         <motion.div variants={header} initial="hidden" whileInView="visible" viewport={VP}>
-          <motion.span className="tagline" variants={fade}>{t.events.tagline}</motion.span>
           <motion.h2 className="section-title" variants={fade}>{t.events.title}</motion.h2>
         </motion.div>
 
         <motion.ul
-          className="events-list"
-          variants={list}
+          className="events-lineup"
+          style={{ listStyle: 'none' }}
+          variants={lineup}
           initial="hidden"
           whileInView="visible"
           viewport={VP}
         >
           {t.events.items.map((item) => (
-            <motion.li key={item} variants={pill} whileHover={{ scale: 1.04, transition: { duration: 0.15 } }}>
-              {item}
+            <motion.li
+              key={item}
+              className="event-lineup-item"
+              variants={lineupItem}
+            >
+              {/* Fondo rojo que barre de izquierda a derecha */}
+              <span className="event-sweep" aria-hidden="true" />
+              <span className="event-lineup-text">{item}</span>
+              <span className="event-lineup-arrow" aria-hidden="true">→</span>
             </motion.li>
           ))}
         </motion.ul>

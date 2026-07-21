@@ -73,7 +73,6 @@ export default function Gallery({ t }) {
     <section id="galeria">
       <div className="container">
         <motion.div variants={header} initial="hidden" whileInView="visible" viewport={VP}>
-          <motion.span className="tagline" variants={fade}>{t.gallery.tagline}</motion.span>
           <motion.h2 className="section-title" variants={fade}>{t.gallery.title}</motion.h2>
           <motion.p className="section-subtitle" variants={fade}>{t.gallery.subtitle}</motion.p>
         </motion.div>

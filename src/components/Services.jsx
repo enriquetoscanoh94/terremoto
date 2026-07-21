@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion'
-import { SERVICE_ICONS } from '../data/icons-map.js'
 
 const EASE = [0.22, 1, 0.36, 1]
-const VP = { once: true, amount: 0.12 }
+const VP = { once: true, amount: 0.1 }
 
 const header = {
   hidden: {},
@@ -10,18 +9,18 @@ const header = {
 }
 
 const fade = {
-  hidden: { opacity: 0, y: 26 },
+  hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
 }
 
-const grid = {
+const listVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+  visible: { transition: { staggerChildren: 0.055, delayChildren: 0.05 } },
 }
 
-const card = {
-  hidden: { opacity: 0, y: 36 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.52, ease: EASE } },
+const rowVariant = {
+  hidden: { opacity: 0, x: -28 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.44, ease: EASE } },
 }
 
 export default function Services({ t }) {
@@ -29,33 +28,28 @@ export default function Services({ t }) {
     <section id="servicios">
       <div className="container">
         <motion.div variants={header} initial="hidden" whileInView="visible" viewport={VP}>
-          <motion.span className="tagline" variants={fade}>{t.services.tagline}</motion.span>
           <motion.h2 className="section-title" variants={fade}>{t.services.title}</motion.h2>
           <motion.p className="section-subtitle" variants={fade}>{t.services.subtitle}</motion.p>
         </motion.div>
 
         <motion.div
-          className="services-grid"
-          variants={grid}
+          className="services-list"
+          variants={listVariants}
           initial="hidden"
           whileInView="visible"
           viewport={VP}
         >
-          {t.services.items.map((item) => {
-            const Icon = SERVICE_ICONS[item.id]
-            return (
-              <motion.article
-                className="service-card"
-                key={item.id}
-                variants={card}
-                whileHover={{ y: -6, transition: { duration: 0.22, ease: EASE } }}
-              >
-                <div className="service-icon">{Icon && <Icon />}</div>
-                <h3>{item.name}</h3>
-                <p>{item.desc}</p>
-              </motion.article>
-            )
-          })}
+          {t.services.items.map((item, i) => (
+            <motion.article
+              className="service-row"
+              key={item.id}
+              variants={rowVariant}
+            >
+              <span className="service-num">0{i + 1}</span>
+              <h3 className="service-row-name">{item.name}</h3>
+              <p className="service-row-desc">{item.desc}</p>
+            </motion.article>
+          ))}
         </motion.div>
       </div>
     </section>
