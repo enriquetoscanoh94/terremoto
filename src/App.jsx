@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { translations } from './data/i18n.js'
 import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
+import Marquee from './components/Marquee.jsx'
 import Services from './components/Services.jsx'
 import Events from './components/Events.jsx'
 import Gallery from './components/Gallery.jsx'
@@ -24,6 +25,7 @@ export default function App() {
       <Navbar t={t} lang={lang} setLang={setLang} />
       <main>
         <Hero t={t} />
+        <Marquee t={t} />
         <Services t={t} />
         <Events t={t} />
         <Gallery t={t} />

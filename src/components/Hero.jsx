@@ -28,15 +28,15 @@ const badge = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
 }
 
-// h1 entra con blur + rise — efecto cinematográfico
-const titleReveal = {
-  hidden: { opacity: 0, y: 64, filter: 'blur(10px)' },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: 'blur(0px)',
-    transition: { duration: 1.0, ease: EASE_OUT },
-  },
+// h1: cada línea sube desde detrás de una máscara
+const titleLines = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.14 } },
+}
+
+const lineInner = {
+  hidden: { y: '112%' },
+  visible: { y: 0, transition: { duration: 0.9, ease: EASE_OUT } },
 }
 
 const item = {
@@ -100,8 +100,17 @@ export default function Hero({ t }) {
             {t.hero.tagline}
           </motion.span>
 
-          <motion.h1 variants={titleReveal}>
-            {t.hero.title} <span>{t.hero.titleAccent}</span>
+          <motion.h1 variants={titleLines}>
+            <span className="reveal-line">
+              <motion.span className="reveal-inner" variants={lineInner}>
+                {t.hero.title}
+              </motion.span>
+            </span>
+            <span className="reveal-line">
+              <motion.span className="reveal-inner accent" variants={lineInner}>
+                {t.hero.titleAccent}
+              </motion.span>
+            </span>
           </motion.h1>
 
           <motion.p variants={item}>{t.hero.subtitle}</motion.p>
@@ -122,6 +131,17 @@ export default function Hero({ t }) {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Indicador de scroll */}
+      <motion.div
+        className="hero-scroll"
+        aria-hidden="true"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.8, duration: 0.9 }}
+      >
+        <span className="hero-scroll-line" />
+      </motion.div>
     </section>
   )
 }

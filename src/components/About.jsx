@@ -17,6 +17,7 @@ export default function About({ t }) {
 
   return (
     <section className="about">
+      <span className="about-word" aria-hidden="true">Terremoto</span>
       <div className="container">
         <motion.blockquote
           variants={wordContainer}

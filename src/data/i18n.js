@@ -43,6 +43,11 @@ export const translations = {
       tagline: 'Galería',
       title: 'Nuestro trabajo habla por nosotros',
       subtitle: 'Eventos reales, producción real.',
+      play: 'Reproducir video',
+      pause: 'Pausar video',
+      expand: 'Clic para ampliar',
+      photosTab: 'Fotos',
+      videosTab: 'Videos',
     },
     about: {
       quote: 'Calidad, potencia y profesionalismo… que se escucha y se ve.',
@@ -104,6 +109,11 @@ export const translations = {
       tagline: 'Gallery',
       title: 'Our work speaks for itself',
       subtitle: 'Real events, real production.',
+      play: 'Play video',
+      pause: 'Pause video',
+      expand: 'Click to enlarge',
+      photosTab: 'Photos',
+      videosTab: 'Videos',
     },
     about: {
       quote: 'Quality, power and professionalism… you can hear it and see it.',
