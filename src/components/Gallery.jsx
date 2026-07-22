@@ -21,7 +21,7 @@ const photos = [
   'IMG_0967.webp', 'IMG_0973.webp',
   'IMG_1344.webp', 'IMG_1412.webp', 'IMG_1627.webp', 'IMG_1659.webp',
   'IMG_1809.webp', 'IMG_1810.webp', 'IMG_2074.webp',
-  'IMG_2172.webp', 'IMG_2218.webp', 'IMG_2469.webp',
+  'IMG_2172.webp', 'IMG_2469.webp',
   'IMG_2487.webp', 'IMG_2686.webp', 'IMG_2690.webp', 'IMG_2764.webp',
   'IMG_3005.webp', 'IMG_3284.webp',
   'IMG_3377.webp', 'IMG_3650.webp', 'IMG_3699.webp',
